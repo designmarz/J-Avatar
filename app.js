@@ -22,13 +22,34 @@ $('canvas').drawImage({
   sHeight: 100,
   sx: 180, sy: 75,
   cropFromCenter: false
-}).drawLayers();
+}).drawImage({
+  layer: true,
+  name: 'eyes2',
+  source: 'img/imgSource.png',
+  x: 250, y: 300,
+  sWidth: 164,
+  sHeight: 141,
+  sx: 192, sy: 312,
+  index: 10,
+  cropFromCenter: false
+}).drawImage({
+  layer: true,
+  name: 'body',
+  source: 'img/imgSource.png',
+  x: 250, y: 350,
+  sWidth: 302,
+  sHeight: 326,
+  sx: 617, sy: 807,
+  index: 0,
+  cropFromCenter: false
+})
+.drawLayers();
 
 
  $(function() {
     $( "#slider-range1" ).slider({
       min: 0,
-      max: 771,
+      max: 1200,
       values: [ 75, 300 ],
       slide: function( event, ui ) {
       	$('canvas').getLayer('eyes').sWidth = ui.values[ 0 ];
@@ -42,7 +63,7 @@ $('canvas').drawImage({
 
     $( "#slider-range2" ).slider({
       min: 0,
-      max: 771,
+      max: 1200,
       values: [ 75, 300 ],
       slide: function( event, ui ) {
       	$('canvas').getLayer('eyes').sx = ui.values[ 0 ];
