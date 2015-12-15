@@ -1,78 +1,89 @@
+/*jslint  devel: true, nomen: true, indent: 4, maxerr: 50 */
 $(document).ready(function() {
 
 
-
-
-  
 $('canvas').drawImage({
+	 visible: false,
   layer: true,
   name: 'head',
-  source: 'img/imgSource.png',
+  source: 'img/imgSprite.png',
   x: 150, y: 150,
   sWidth: 250,
-  sHeight: 250,
+  sHeight: 200,
   sx: 116, sy: 75,
   cropFromCenter: false
 }).drawImage({
+	 visible: true,
   layer: true,
   name: 'eyes',
-  source: 'img/imgSource.png',
-  x: 350, y: 350,
+  source: 'img/imgSprite.png',
+  x: 150, y: 150,
   sWidth: 180,
-  sHeight: 100,
+  sHeight: 200,
   sx: 180, sy: 75,
   cropFromCenter: false
 }).drawImage({
+	 visible: false,
   layer: true,
   name: 'eyes2',
-  source: 'img/imgSource.png',
+  source: 'img/imgSprite.png',
   x: 300, y: 300,
   sWidth: 164,
-  sHeight: 141,
+  sHeight: 200,
   sx: 192, sy: 312,
   index: 10,
   cropFromCenter: false
 }).drawImage({
+	 visible: false,
   layer: true,
   name: 'body',
-  source: 'img/imgSource.png',
+  source: 'img/body.png',
   x: 300, y: 350,
-  sWidth: 302,
-  sHeight: 326,
-  sx: 617, sy: 807,
+  // sWidth: 302,
+  // sHeight: 326,
+  // sx: 617, sy: 807,
   index: 0,
   cropFromCenter: false
 })
 .drawLayers();
 
+$('#print_btn').click(function() {
+  var x = $( "#amount1" ).val( );
+  var y = $( "#amount2" ).val( );
+
+  console.log(prompt("Layer Name"));
+  console.log(x);
+  console.log(y);
+});
+
 
  $(function() {
     $( "#slider-range1" ).slider({
-      min: 0,
-      max: 1200,
+      min: 50,
+      max: 600,
       values: [ 75, 300 ],
       slide: function( event, ui ) {
       	$('canvas').getLayer('eyes').sWidth = ui.values[ 0 ];
-      	$('canvas').getLayer('eyes').sHeight = ui.values[ 1 ];
-        $( "#amount1" ).val( ui.values[ 0 ] + " - " + ui.values[ 1 ] );
+      	// $('canvas').getLayer('eyes').sHeight = ui.values[ 1 ];
+        $( "#amount1" ).val( "sWidth " + ui.values[ 0 ] + " - sHeight " + ui.values[ 1 ] );
         $('canvas').drawLayers();
       }
     });
-    $( "#amount1" ).val(  $( "#slider-range1" ).slider( "values", 0 ) + " - " + $( "#slider-range1" ).slider( "values", 1 ) );
+    $( "#amount1" ).val( "sWidth "+ $( "#slider-range1" ).slider( "values", 0 ) + " - sHeight " + $( "#slider-range1" ).slider( "values", 1 ) );
 
 
     $( "#slider-range2" ).slider({
-      min: 0,
-      max: 1200,
+      min: 50,
+      max: 2800,
       values: [ 75, 300 ],
       slide: function( event, ui ) {
       	$('canvas').getLayer('eyes').sx = ui.values[ 0 ];
       	$('canvas').getLayer('eyes').sy = ui.values[ 1 ];
-        $( "#amount2" ).val( ui.values[ 0 ] + " - " + ui.values[ 1 ] );
+        $( "#amount2" ).val("SX " +  ui.values[ 0 ] + " - SY " + ui.values[ 1 ] );
         $('canvas').drawLayers();
       }
     });
-    $( "#amount2" ).val(  $( "#slider-range2" ).slider( "values", 0 ) + " - " + $( "#slider-range2" ).slider( "values", 1 ) );
+    $( "#amount2" ).val(  "SX " + $( "#slider-range2" ).slider( "values", 0 ) + " - SY " + $( "#slider-range2" ).slider( "values", 1 ) );
   });
 
 

@@ -66,6 +66,17 @@
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
+	"\/img\/imgSprite.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 156505,
+		"inputAbbreviatedPath": "\/img\/imgSprite.png",
+		"outputAbbreviatedPath": "\/img\/imgSprite.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
 	"\/img\/mr.jpg": {
 		"fileType": 16384,
 		"ignore": 0,
