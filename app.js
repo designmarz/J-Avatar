@@ -2,7 +2,7 @@
 $(document).ready(function() {
 
 
-$('canvas').drawImage({
+$('#canvas_main').drawImage({
 	 visible: false,
   layer: true,
   name: 'head',
@@ -47,6 +47,40 @@ $('canvas').drawImage({
 })
 .drawLayers();
 
+
+
+
+$('#canvas_preview').drawImage({
+  source: 'img/imgSprite.png',
+  x: 1500, y: 100,
+  layer: true,
+  index: 0
+})
+.drawLine({
+	layer: true,
+  strokeStyle: '#D00808',
+  strokeWidth: 2,
+  x1: 1400, y1: 0,
+  x2: 1400, y2: 200
+}).drawLayers();
+
+
+
+for (var i = 0; i < 18; i++) {
+
+	$('#canvas_preview').drawLine({
+		layer: true,
+	  strokeStyle: '#D00808',
+	  strokeWidth: 2,
+	  x1: (200*[i]), y1: 0,
+	  x2: (200*[i]), y2: 200
+	}).drawLayers();
+
+}
+
+
+
+
 $('#print_btn').click(function() {
   var x = $( "#amount1" ).val( );
   var y = $( "#amount2" ).val( );
@@ -57,16 +91,33 @@ $('#print_btn').click(function() {
 });
 
 
+
+
+function getPosition(event)
+{
+  var x = event.x;
+  var y = event.y;
+
+
+  // x -= canvas.offsetLeft;
+  // y -= canvas.offsetTop;
+
+  console.log("x:" + x + " y:" + y);
+}
+var canvas = document.getElementById("canvas_preview");
+canvas.addEventListener("mousedown", getPosition, false);
+
+
  $(function() {
     $( "#slider-range1" ).slider({
       min: 50,
       max: 600,
       values: [ 75, 300 ],
       slide: function( event, ui ) {
-      	$('canvas').getLayer('eyes').sWidth = ui.values[ 0 ];
-      	// $('canvas').getLayer('eyes').sHeight = ui.values[ 1 ];
+      	$('#canvas_main').getLayer('eyes').sWidth = ui.values[ 0 ];
+      	// $('#canvas_main').getLayer('eyes').sHeight = ui.values[ 1 ];
         $( "#amount1" ).val( "sWidth " + ui.values[ 0 ] + " - sHeight " + ui.values[ 1 ] );
-        $('canvas').drawLayers();
+        $('#canvas_main').drawLayers();
       }
     });
     $( "#amount1" ).val( "sWidth "+ $( "#slider-range1" ).slider( "values", 0 ) + " - sHeight " + $( "#slider-range1" ).slider( "values", 1 ) );
@@ -77,10 +128,10 @@ $('#print_btn').click(function() {
       max: 2800,
       values: [ 75, 300 ],
       slide: function( event, ui ) {
-      	$('canvas').getLayer('eyes').sx = ui.values[ 0 ];
-      	$('canvas').getLayer('eyes').sy = ui.values[ 1 ];
+      	$('#canvas_main').getLayer('eyes').sx = ui.values[ 0 ];
+      	$('#canvas_main').getLayer('eyes').sy = ui.values[ 1 ];
         $( "#amount2" ).val("SX " +  ui.values[ 0 ] + " - SY " + ui.values[ 1 ] );
-        $('canvas').drawLayers();
+        $('#canvas_main').drawLayers();
       }
     });
     $( "#amount2" ).val(  "SX " + $( "#slider-range2" ).slider( "values", 0 ) + " - SY " + $( "#slider-range2" ).slider( "values", 1 ) );
