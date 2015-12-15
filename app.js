@@ -1,49 +1,104 @@
 /*jslint  devel: true, nomen: true, indent: 4, maxerr: 50 */
 $(document).ready(function() {
 
-
+// eye1
+// sWidth 200 - sHeight 200
+// SX 50 - SY 197
 $('#canvas_main').drawImage({
-	 visible: false,
-  layer: true,
-  name: 'head',
-  source: 'img/imgSprite.png',
-  x: 150, y: 150,
-  sWidth: 250,
-  sHeight: 200,
-  sx: 116, sy: 75,
-  cropFromCenter: false
+
+	visible: false,
+	layer: true,
+	name: 'slider_crop',
+  	source: 'img/imgSprite.png',
+  	x: 150, y: 150,
+  	sWidth: 180,
+  	sHeight: 200,
+  	sx: 180, sy: 75,
+  	index: 500,
+  	cropFromCenter: false
+
 }).drawImage({
-	 visible: true,
-  layer: true,
-  name: 'eyes',
-  source: 'img/imgSprite.png',
-  x: 150, y: 150,
-  sWidth: 180,
-  sHeight: 200,
-  sx: 180, sy: 75,
-  cropFromCenter: false
+
+	visible: false,
+	layer: true,
+	name: 'head',
+  	source: 'img/imgSprite.png',
+  	x: 150, y: 150,
+  	sWidth: 250,
+  	sHeight: 200,
+  	sx: 116, sy: 75,
+  	index: 8,
+  	cropFromCenter: false
+
 }).drawImage({
-	 visible: false,
-  layer: true,
-  name: 'eyes2',
-  source: 'img/imgSprite.png',
-  x: 300, y: 300,
-  sWidth: 164,
-  sHeight: 200,
-  sx: 192, sy: 312,
-  index: 10,
-  cropFromCenter: false
+
+	visible: true,
+	layer: true,
+	name: 'eyes',
+  	source: 'img/imgSprite.png',
+  	x: 300, y: 220,
+  	sWidth: 200,
+  	sHeight: 200,
+  	sx: 50, sy: 197,
+  	index: 10,
+  	cropFromCenter: false
+
 }).drawImage({
-	 visible: false,
-  layer: true,
-  name: 'body',
-  source: 'img/body.png',
-  x: 300, y: 350,
-  // sWidth: 302,
-  // sHeight: 326,
-  // sx: 617, sy: 807,
-  index: 0,
-  cropFromCenter: false
+	
+	// nose2
+	// sWidth 200 - sHeight 200
+	// SX 1517 - SY 197
+
+	visible: false,
+	layer: true,
+	name: 'nose',
+  	source: 'img/imgSprite.png',
+  	x: 320, y: 220,
+  	sWidth: 200,
+  	sHeight: 200,
+  	sx: 1517, sy: 197,
+  	index: 20,
+  	cropFromCenter: false,
+
+}).drawImage({
+
+	visible: false,
+  	layer: true,
+  	name: 'earL',
+  	source: 'img/imgSprite.png',
+  	x: 300, y: 220,
+  	sWidth: 200,
+  	sHeight: 200,
+  	sx: 50, sy: 197,
+  	index: 1,
+  	cropFromCenter: false
+
+}).drawImage({
+
+	visible: false,
+  	layer: true,
+  	name: 'earR',
+  	source: 'img/imgSprite.png',
+  	x: 300, y: 220,
+  	sWidth: 200,
+  	sHeight: 200,
+  	sx: 50, sy: 197,
+  	index: 1,
+  	cropFromCenter: false
+
+}).drawImage({
+
+	visible: true,
+  	layer: true,
+  	name: 'body',
+  	source: 'img/body.png',
+  	x: 300, y: 350,
+  	// sWidth: 302,
+  	// sHeight: 326,
+  	// sx: 617, sy: 807,
+  	index: 0,
+  	cropFromCenter: false
+
 })
 .drawLayers();
 
@@ -51,6 +106,7 @@ $('#canvas_main').drawImage({
 
 
 $('#canvas_preview').drawImage({
+	visible: false,
   source: 'img/imgSprite.png',
   x: 1500, y: 100,
   layer: true,
@@ -66,56 +122,81 @@ $('#canvas_preview').drawImage({
 
 
 
-for (var i = 0; i < 18; i++) {
-
-	$('#canvas_preview').drawLine({
-		layer: true,
-	  strokeStyle: '#D00808',
-	  strokeWidth: 2,
-	  x1: (200*[i]), y1: 0,
-	  x2: (200*[i]), y2: 200
-	}).drawLayers();
-
-}
 
 
+// x/y cropping cords //
+//
+// eye1
+// sWidth 200 - sHeight 200
+// SX 50 - SY 197
+
+// eye2
+// sWidth 200 - sHeight 200
+// SX 314 - SY 197
+
+// eye3
+// sWidth 200 - sHeight 200
+// SX 505 - SY 197
+
+// eye4
+// sWidth 200 - sHeight 200
+// SX 694 - SY 197
+
+// eye5
+// sWidth 200 - sHeight 200
+// SX 900 - SY 197
+
+// eye6
+// sWidth 200 - sHeight 200
+// SX 1101 - SY 197
+
+// nose1
+// sWidth 200 - sHeight 200
+// SX 1303 - SY 197
+
+// nose2
+// sWidth 200 - sHeight 200
+// SX 1517 - SY 197
+
+// nose3
+// sWidth 200 - sHeight 200
+// SX 1701 - SY 197
+
+// nose4
+// sWidth 200 - sHeight 200
+// SX 1896 - SY 197
+
+// mouth1
+// sWidth 200 - sHeight 200
+// SX 2091 - SY 197
+
+// mouth2
+// sWidth 200 - sHeight 200
+// SX 2317 - SY 197
+
+// mouth3
+// sWidth 200 - sHeight 200
+// SX 2505 - SY 197
+
+// ear1
+// sWidth 200 - sHeight 200
+// SX 2701 - SY 197
+
+// ear2
+// sWidth 386 - sHeight 202
+// SX 2800 - SY 609
+//
 
 
-$('#print_btn').click(function() {
-  var x = $( "#amount1" ).val( );
-  var y = $( "#amount2" ).val( );
-
-  console.log(prompt("Layer Name"));
-  console.log(x);
-  console.log(y);
-});
-
-
-
-
-function getPosition(event)
-{
-  var x = event.x;
-  var y = event.y;
-
-
-  // x -= canvas.offsetLeft;
-  // y -= canvas.offsetTop;
-
-  console.log("x:" + x + " y:" + y);
-}
-var canvas = document.getElementById("canvas_preview");
-canvas.addEventListener("mousedown", getPosition, false);
-
-
+// Begin Slider //
  $(function() {
     $( "#slider-range1" ).slider({
       min: 50,
       max: 600,
       values: [ 75, 300 ],
       slide: function( event, ui ) {
-      	$('#canvas_main').getLayer('eyes').sWidth = ui.values[ 0 ];
-      	// $('#canvas_main').getLayer('eyes').sHeight = ui.values[ 1 ];
+      	$('#canvas_main').getLayer('slider_crop').sWidth = ui.values[ 0 ];
+      	// $('#canvas_main').getLayer('slider_crop').sHeight = ui.values[ 1 ];
         $( "#amount1" ).val( "sWidth " + ui.values[ 0 ] + " - sHeight " + ui.values[ 1 ] );
         $('#canvas_main').drawLayers();
       }
@@ -128,14 +209,50 @@ canvas.addEventListener("mousedown", getPosition, false);
       max: 2800,
       values: [ 75, 300 ],
       slide: function( event, ui ) {
-      	$('#canvas_main').getLayer('eyes').sx = ui.values[ 0 ];
-      	$('#canvas_main').getLayer('eyes').sy = ui.values[ 1 ];
+      	$('#canvas_main').getLayer('slider_crop').sx = ui.values[ 0 ];
+      	$('#canvas_main').getLayer('slider_crop').sy = ui.values[ 1 ];
         $( "#amount2" ).val("SX " +  ui.values[ 0 ] + " - SY " + ui.values[ 1 ] );
         $('#canvas_main').drawLayers();
       }
     });
     $( "#amount2" ).val(  "SX " + $( "#slider-range2" ).slider( "values", 0 ) + " - SY " + $( "#slider-range2" ).slider( "values", 1 ) );
   });
+// End Slider //
 
 
+// Begin Debugging Area //
+
+	for (var i = 0; i < 16; i++) {
+
+		$('#canvas_preview').drawLine({
+			layer: true,
+		  strokeStyle: '#D00808',
+		  strokeWidth: 2,
+		  x1: (200*[i]), y1: 0,
+		  x2: (200*[i]), y2: 200
+		}).drawLayers();
+
+	}
+
+	$('#print_btn').click(function() {
+	  var x = $( "#amount1" ).val( );
+	  var y = $( "#amount2" ).val( );
+
+	  console.log(prompt("Layer Name"));
+	  console.log(x);
+	  console.log(y);
+	});
+
+	function getPosition(event)
+	{
+	  var x = event.offsetX;
+	  var y = event.offsetY;
+	  // x -= canvas.offsetLeft;
+	  // y -= canvas.offsetTop;
+	  console.log("x:" + x + " y:" + y);
+	}
+	var canvas = document.getElementById("canvas_preview");
+	canvas.addEventListener("mousedown", getPosition, false);
+
+// End Debugging Area //
 });
