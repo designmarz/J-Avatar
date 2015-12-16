@@ -1,11 +1,15 @@
 /*jslint  devel: true, nomen: true, indent: 4, maxerr: 50 */
 $(document).ready(function() {
 
+
+
+
+
 // eye1
 // sWidth 200 - sHeight 200
 // SX 50 - SY 197
 $('#canvas_main').drawImage({
-
+draggable: true,
 	visible: false,
 	layer: true,
 	name: 'slider_crop',
@@ -18,10 +22,13 @@ $('#canvas_main').drawImage({
   	cropFromCenter: false
 
 }).drawImage({
-
+  // mouth1
+// sWidth 200 - sHeight 200
+// SX 2091 - SY 197
+draggable: true,
 	visible: false,
 	layer: true,
-	name: 'head',
+	name: 'mouth',
   	source: 'img/imgSprite.png',
   	x: 150, y: 150,
   	sWidth: 250,
@@ -31,7 +38,7 @@ $('#canvas_main').drawImage({
   	cropFromCenter: false
 
 }).drawImage({
-
+draggable: true,
 	visible: true,
 	layer: true,
 	name: 'eyes',
@@ -48,7 +55,7 @@ $('#canvas_main').drawImage({
 	// nose2
 	// sWidth 200 - sHeight 200
 	// SX 1517 - SY 197
-
+draggable: true,
 	visible: false,
 	layer: true,
 	name: 'nose',
@@ -187,6 +194,38 @@ $('#canvas_preview').drawImage({
 // SX 2800 - SY 609
 //
 
+// Begin Layer Control //
+
+  $('#ck1').click(function() {
+    if ($('#canvas_main').getLayer('eyes').visible === false) {
+      $('#canvas_main').getLayer('eyes').visible = true;
+    } else if ($('#canvas_main').getLayer('eyes').visible === true){
+      $('#canvas_main').getLayer('eyes').visible = false;
+    }
+    $('#canvas_main').drawLayers();
+  });
+
+   $('#ck2').click(function() {
+    if ($('#canvas_main').getLayer('nose').visible === false) {
+      $('#canvas_main').getLayer('nose').visible = true;
+    } else if ($('#canvas_main').getLayer('nose').visible === true){
+      $('#canvas_main').getLayer('nose').visible = false;
+    }
+    $('#canvas_main').drawLayers();
+  });
+  
+   $('#ck3').click(function() {
+    if ($('#canvas_main').getLayer('mouth').visible === false) {
+      $('#canvas_main').getLayer('mouth').visible = true;
+    } else if ($('#canvas_main').getLayer('mouth').visible === true){
+      $('#canvas_main').getLayer('mouth').visible = false;
+    }
+    $('#canvas_main').drawLayers();
+  });
+  
+
+// End Layer Control //
+
 
 // Begin Slider //
  $(function() {
@@ -255,4 +294,5 @@ $('#canvas_preview').drawImage({
 	canvas.addEventListener("mousedown", getPosition, false);
 
 // End Debugging Area //
+$('#canvas_main').drawLayers();
 });
