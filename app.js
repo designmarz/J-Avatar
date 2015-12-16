@@ -10,7 +10,7 @@ $(document).ready(function() {
 // SX 50 - SY 197
 $('#canvas_main').drawImage({
 draggable: true,
-	visible: false,
+	visible: true,
 	layer: true,
 	name: 'slider_crop',
   	source: 'img/imgSprite.png',
@@ -26,15 +26,15 @@ draggable: true,
 // sWidth 200 - sHeight 200
 // SX 2091 - SY 197
 draggable: true,
-	visible: false,
+	visible: true,
 	layer: true,
 	name: 'mouth',
   	source: 'img/imgSprite.png',
   	x: 150, y: 150,
-  	sWidth: 250,
+  	sWidth: 200,
   	sHeight: 200,
-  	sx: 116, sy: 75,
-  	index: 8,
+  	sx: 2091, sy: 197,
+  	index: 30,
   	cropFromCenter: false
 
 }).drawImage({
@@ -68,20 +68,24 @@ draggable: true,
   	cropFromCenter: false,
 
 }).drawImage({
-
-	visible: false,
+// ear1
+// sWidth 200 - sHeight 200
+// SX 2701 - SY 197
+draggable: true,
+	visible: true,
   	layer: true,
   	name: 'earL',
   	source: 'img/imgSprite.png',
   	x: 300, y: 220,
   	sWidth: 200,
   	sHeight: 200,
-  	sx: 50, sy: 197,
+  	sx: 2701, sy: 197,
   	index: 1,
   	cropFromCenter: false
 
 }).drawImage({
 
+draggable: true,
 	visible: false,
   	layer: true,
   	name: 'earR',
